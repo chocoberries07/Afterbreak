@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AFTERHOURS 15 — Your autumn break, reimagined</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--bg:#05050d;--panel:rgba(15,15,31,.72);--line:rgba(160,145,255,.18);--purple:#9c7bff;--blue:#5e9dff;--muted:#aaa9c4;--white:#f7f5ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Manrope,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(ellipse at 15% 10%,#35135a55,transparent 35%),radial-gradient(ellipse at 85% 40%,#092b6950,transparent 35%),#05050d}
+#stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6}
+nav{position:fixed;z-index:10;top:16px;left:50%;transform:translateX(-50%);width:min(1100px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border:1px solid var(--line);border-radius:18px;background:#090914b8;backdrop-filter:blur(18px)}
+.logo{font-weight:800;letter-spacing:.12em;font-size:12px}.logo span{color:var(--purple)}nav a{color:#c9c7e4;text-decoration:none;font-size:12px;margin:0 12px}nav a:hover{color:white}.nav-cta,.btn{border:1px solid #8f7cff88;background:linear-gradient(110deg,#6c40e9,#2365d9);color:white;text-decoration:none;padding:11px 16px;border-radius:12px;font-weight:700;font-size:12px;box-shadow:0 0 25px #704dff35;cursor:pointer}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:130px 20px 80px;position:relative;isolation:isolate}
+.eyebrow{font:11px 'DM Mono',monospace;letter-spacing:.2em;color:#b6a6ff;text-transform:uppercase}.hero h1{font-size:clamp(54px,10vw,126px);line-height:.88;letter-spacing:-.075em;margin:26px 0 24px;font-weight:800}.hero h1 span{background:linear-gradient(100deg,#fff 10%,#b4a0ff 45%,#6ab5ff 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 35px #8b64ff36)}
+.hero p{max-width:600px;color:#b8b6d1;line-height:1.8;font-size:15px;margin:0 auto 30px}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn.secondary{background:#ffffff08;border-color:#ffffff25;box-shadow:none}
+.orb-wrap{position:absolute;width:min(56vw,540px);aspect-ratio:1;top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1;opacity:.48;pointer-events:none}.orb{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 28%,#8e6dff55,transparent 28%),radial-gradient(circle at 65% 70%,#1b8dff50,transparent 35%),radial-gradient(circle at center,#12102a 0%,#080814 55%,transparent 70%);box-shadow:inset 0 0 70px #4f3cff60,0 0 100px #5337ff25;animation:float 8s ease-in-out infinite}.orb:before,.orb:after{content:"";position:absolute;inset:10%;border:1px solid #9d83ff65;border-radius:50%;transform:rotate(-28deg) scaleY(.35);box-shadow:0 0 22px #6f60ff25}.orb:after{transform:rotate(45deg) scaleY(.28);border-color:#4d9dff70}@keyframes float{50%{transform:translateY(-16px) scale(1.025)}}
+.scroll{position:absolute;bottom:28px;color:#777591;font:10px 'DM Mono',monospace;letter-spacing:.18em}.scroll:after{content:"";display:block;width:1px;height:35px;background:linear-gradient(var(--purple),transparent);margin:12px auto}
+section{padding:100px max(6vw,22px);max-width:1400px;margin:auto}.section-top{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:35px}.section-top h2{font-size:clamp(32px,5vw,58px);letter-spacing:-.06em;margin:12px 0 0}.section-top p{max-width:390px;color:var(--muted);font-size:13px;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:23px;backdrop-filter:blur(14px);transition:transform .25s,border-color .25s,box-shadow .25s}.card:hover{transform:translateY(-5px);border-color:#9a83ff70;box-shadow:0 15px 50px #3d2b8840}.card .tag{font:10px 'DM Mono',monospace;color:#a99aff;letter-spacing:.13em}.card h3{font-size:19px;margin:12px 0 9px}.card p{color:var(--muted);font-size:12px;line-height:1.75;margin:0}.icon{font-size:24px;margin-bottom:16px}.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.day{padding:18px 15px;min-height:165px;cursor:pointer;position:relative}.day strong{font:11px 'DM Mono',monospace;color:#a99aff}.day h3{font-size:15px;margin:13px 0 8px}.day small{font-size:11px;color:var(--muted);line-height:1.5}.day.done{border-color:#5ad9b580;background:#0b2623a8}.day.done:after{content:"✓";position:absolute;right:14px;top:12px;color:#73e4be}
+.progressbox{display:flex;align-items:center;gap:20px;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:22px;background:#0c0b19}.bar{height:7px;background:#24213b;border-radius:99px;overflow:hidden;flex:1}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--blue));transition:width .4s}.progressbox b{font:12px 'DM Mono',monospace;color:#c4baff}
+.focus{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.timer{text-align:center;padding:36px}.time{font:clamp(48px,7vw,82px) 'DM Mono',monospace;letter-spacing:-.07em;margin:20px 0;color:#e5ddff;text-shadow:0 0 30px #9876ff66}.timer-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.mini{font:10px 'DM Mono',monospace;color:#9c95bb}.playlist a{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid #ffffff12;color:#eeeaff;text-decoration:none;font-size:13px}.playlist a:last-child{border:0}.playlist a span{color:#a99aff;font-size:11px}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.skill{padding:18px}.skill h3{font-size:14px}.skill p{font-size:11px}
+footer{text-align:center;padding:55px 20px 75px;color:#777591;font:10px 'DM Mono',monospace;letter-spacing:.12em}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:800px){nav .links{display:none}.grid{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(2,1fr)}.focus{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.section-top{display:block}.section-top p{margin-top:14px}.hero h1{font-size:clamp(55px,15vw,95px)}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<nav><div class="logo">AFTER<span>HOURS</span> 15</div><div class="links"><a href="#roadmap">Roadmap</a><a href="#universe">Explore</a><a href="#focus">Focus room</a></div><a class="nav-cta" href="#roadmap">START THE 15 DAYS ↗</a></nav>
+<header class="hero">
+  <div class="orb-wrap"><div class="orb"></div></div>
+  <div>
+    <div class="eyebrow">AUTUMN BREAK / CSE STUDENT EDITION</div>
+    <h1>YOUR BREAK.<br><span>YOUR COMEBACK.</span></h1>
+    <p>15 days to build skills, explore what’s next, and become the version of you that walks into the next semester differently.</p>
+    <div class="actions"><a class="btn" href="#roadmap">Enter the journey ↗</a><a class="btn secondary" href="#focus">Open focus room</a></div>
+  </div>
+  <div class="scroll">SCROLL TO EXPLORE</div>
+</header>
+<section id="universe" class="reveal">
+ <div class="section-top"><div><div class="eyebrow">THE STUDY UNIVERSE</div><h2>More than just<br>catching up.</h2></div><p>Give your break a little structure and a lot of possibility. Pick a track, make something real, and keep the curiosity switched on.</p></div>
+ <div class="grid">
+  <article class="card"><div class="icon">⌘</div><div class="tag">TRACK 01 / CORE</div><h3>Code with confidence</h3><p>Java OOP, Python problem-solving, and DSA foundations. Strengthen the basics by building, not just watching.</p></article>
+  <article class="card"><div class="icon">◈</div><div class="tag">TRACK 02 / CREATE</div><h3>Make the web yours</h3><p>HTML, CSS, responsive layouts, Bootstrap, Git, and GitHub. Turn practice into a portfolio-worthy mini project.</p></article>
+  <article class="card"><div class="icon">✳</div><div class="tag">TRACK 03 / EXPLORE</div><h3>Follow the curiosity</h3><p>Explore AI tools, research papers, design thinking, communication, and the wider world of computer science.</p></article>
+ </div>
+</section>
+<section id="roadmap" class="reveal">
+ <div class="section-top"><div><div class="eyebrow">15 DAYS / ONE RESET</div><h2>Your autumn roadmap.</h2></div><p>Tap a day to mark it complete. Keep it realistic: steady progress beats a perfect plan.</p></div>
+ <div class="progressbox"><b id="progressText">0 / 15 DAYS</b><div class="bar"><span id="progressBar"></span></div><b id="percent">0%</b></div>
+ <div class="roadmap" id="days"></div>
+</section>
+<section id="focus" class="reveal">
+ <div class="section-top"><div><div class="eyebrow">AFTERHOURS MODE</div><h2>Enter your focus zone.</h2></div><p>Put your phone away. Pick one task. Let the next 25 minutes belong to you.</p></div>
+ <div class="focus">
+  <div class="card timer"><div class="mini">POMODORO / DEEP WORK</div><div class="time" id="clock">25:00</div><div class="timer-controls"><button class="btn" id="start">Start focus</button><button class="btn secondary" id="reset">Reset</button></div><p class="mini" id="timerNote" style="margin-top:20px">25 min focus · 5 min break</p></div>
+  <div class="card playlist"><div class="tag">SOUNDTRACK FOR THE SESSION</div><h3>Study playlist</h3><p style="color:var(--muted);font-size:12px">Choose a vibe and open a playlist.</p><a target="_blank" rel="noopener" href="https://open.spotify.com/search/lofi%20study">lo-fi study beats <span>OPEN ↗</span></a><a target="_blank" rel="noopener" href="https://open.spotify.com/search/ambient%20focus">ambient focus <span>OPEN ↗</span></a><a target="_blank" rel="noopener" href="https://open.spotify.com/search/deep%20work">deep work <span>OPEN ↗</span></a><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=rain+sounds+for+studying">rainy-night ambience <span>OPEN ↗</span></a></div>
+ </div>
+</section>
+<section class="reveal">
+ <div class="section-top"><div><div class="eyebrow">SIDE QUESTS</div><h2>Skills beyond syllabus.</h2></div><p>A small taste of the skills that make you a more capable, curious, and collaborative CSE student.</p></div>
+ <div class="skills">
+  <article class="card skill"><div class="tag">01 / BUILD</div><h3>Git & GitHub</h3><p>Commits, repositories, README files, and sharing your work.</p></article>
+  <article class="card skill"><div class="tag">02 / DISCOVER</div><h3>AI & prompting</h3><p>Use AI thoughtfully to learn, debug, brainstorm, and verify.</p></article>
+  <article class="card skill"><div class="tag">03 / RESEARCH</div><h3>Read one paper</h3><p>Explore an accessible paper or article and explain its big idea.</p></article>
+  <article class="card skill"><div class="tag">04 / CONNECT</div><h3>Communication</h3><p>Practice presenting a project clearly in 60 seconds.</p></article>
+ </div>
+</section>
+<footer>MADE FOR THE CURIOUS CSE STUDENT · AUTUMN BREAK, 15 DAYS</footer>
+<script>
+const dayData=[
+["Reset & plan","Set goals, clean your workspace, choose a project."],
+["Java refresh","Types, operators, conditions, loops."],
+["Java OOP","Classes, objects, constructors, methods."],
+["Java practice","Solve 4 small problems; trace outputs."],
+["Python basics","Lists, strings, loops, dictionaries."],
+["Problem solving","Write simple solutions and test edge cases."],
+["HTML foundations","Semantic structure, links, images, forms."],
+["CSS glow-up","Selectors, box model, flexbox, responsive design."],
+["Bootstrap & UI","Grid, cards, navbar, buttons."],
+["Git & GitHub","Create repo, commit, push, write README."],
+["DSA starter","Arrays/lists, searching, sorting concepts."],
+["AI exploration","Prompt well, verify outputs, document learning."],
+["Research & career","Read a tech article; explore roles and skills."],
+["Build day","Create a small personal portfolio or study tool."],
+["Showcase & reflect","Polish project, share it, plan your next steps."]
+];
+const days=document.querySelector('#days');
+dayData.forEach((d,i)=>{const el=document.createElement('article');el.className='card day';el.innerHTML=`<strong>DAY ${String(i+1).padStart(2,'0')}</strong><h3>${d[0]}</h3><small>${d[1]}</small>`;el.addEventListener('click',()=>{el.classList.toggle('done');updateProgress()});days.appendChild(el)});
+function updateProgress(){let n=document.querySelectorAll('.day.done').length;document.querySelector('#progressText').textContent=`${n} / 15 DAYS`;document.querySelector('#percent').textContent=Math.round(n/15*100)+'%';document.querySelector('#progressBar').style.width=(n/15*100)+'%'}
+const canvas=document.querySelector('#stars'),ctx=canvas.getContext('2d');let stars=[];
+function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';stars=Array.from({length:100},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5+.3,a:Math.random()*.7+.1,s:Math.random()*.25+.05}))}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.y-=s.s*devicePixelRatio;if(s.y<0)s.y=canvas.height;ctx.fillStyle=`rgba(174,157,255,${s.a})`;ctx.beginPath();ctx.arc(s.x,s.y,s.r*devicePixelRatio,0,Math.PI*2);ctx.fill()});requestAnimationFrame(animate)}resize();addEventListener('resize',resize);animate();
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+let seconds=1500,interval=null,breakMode=false;const clock=document.querySelector('#clock');function paint(){clock.textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+document.querySelector('#start').onclick=()=>{if(interval){clearInterval(interval);interval=null;document.querySelector('#start').textContent='Resume focus';return}document.querySelector('#start').textContent='Pause';interval=setInterval(()=>{seconds--;paint();if(seconds<=0){clearInterval(interval);interval=null;breakMode=!breakMode;seconds=breakMode?300:1500;document.querySelector('#timerNote').textContent=breakMode?'5 min break · recharge':'25 min focus · 5 min break';document.querySelector('#start').textContent='Start next session';paint();alert(breakMode?'Focus complete! Take a 5-minute break.':'Break complete! Ready for another focus session?')}},1000)};
+document.querySelector('#reset').onclick=()=>{clearInterval(interval);interval=null;seconds=breakMode?300:1500;paint();document.querySelector('#start').textContent='Start focus'};paint();
+</script>
+</body>
+</html>
